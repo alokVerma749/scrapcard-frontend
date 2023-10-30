@@ -4,7 +4,7 @@ import Registration from './page/Registration';
 import Login from './page/Login';
 import Header from './components/Header';
 import Hero from './page/Hero';
-import Profile from './page/Profile';
+import Profile from './page/userProfile/Profile';
 import Footer from './components/Footer';
 
 function App() {
