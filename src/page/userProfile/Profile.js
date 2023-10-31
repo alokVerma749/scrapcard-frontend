@@ -7,6 +7,7 @@ import { useEffect } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Profile = () => {
     useEffect(() => {
@@ -68,10 +69,7 @@ const Profile = () => {
     }
     const logout = async () => {
         try {
-            const response = await fetch('http://localhost:8080/api/v1/auth/logout', {
-                method: 'GET',
-                credentials: 'include',
-            })
+            const response = await axios.get('http://localhost:8080/api/v1/auth/logout', { withCredentials: true })
             console.log(response);
             if (response.status === 200) {
                 toast.success('Logged out', {
