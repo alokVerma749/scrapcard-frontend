@@ -16,6 +16,10 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         loginUser(userCredentials);
+        setUserCredentials({
+            email: '',
+            password: ''
+        })
     }
 
     const loginUser = async (userData) => {
@@ -50,7 +54,7 @@ const Login = () => {
             }
         } catch (error) {
             console.log(error);
-            toast.error('something went wrong', {
+            toast.error(error.response.data.msg || 'something went wrong', {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,

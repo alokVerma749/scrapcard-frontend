@@ -22,6 +22,16 @@ const Registration = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         registerUser(userData);
+        setUserData({
+            name: '',
+            email: '',
+            company: '',
+            password: '',
+            imgURL: '',
+            githubLink: '',
+            twitterLink: '',
+            website: ''
+        })
     }
 
     const registerUser = async (userData) => {
