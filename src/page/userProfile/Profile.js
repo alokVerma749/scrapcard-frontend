@@ -6,12 +6,14 @@ import { useEffect } from 'react'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
     useEffect(() => {
         fetchData();
     }, [])
 
+    const navigate = useNavigate();
 
     const fetchData = async () => {
         try {
@@ -36,7 +38,7 @@ const Profile = () => {
                     theme: "light",
                 });
             } else {
-                toast.warn('You are not authorised', {
+                toast.warn('You are not authorised, please login', {
                     position: "top-right",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -46,6 +48,9 @@ const Profile = () => {
                     progress: undefined,
                     theme: "light",
                 });
+                setTimeout(() => {
+                    navigate("/login");
+                }, 3000)
             }
         } catch (error) {
             console.log(error);
@@ -68,8 +73,33 @@ const Profile = () => {
                 credentials: 'include',
             })
             console.log(response);
+            if (response.status === 200) {
+                toast.success('Logged out', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            }
+            setTimeout(() => {
+                navigate("/");
+            }, 1000)
         } catch (error) {
             console.log(error);
+            toast.error('Something went wrong', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
         }
     }
     return (

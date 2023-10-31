@@ -1,6 +1,9 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Registration = () => {
     const [userData, setUserData] = useState({
@@ -9,6 +12,9 @@ const Registration = () => {
         company: '',
         password: ''
     })
+
+    const navigate = useNavigate();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         registerUser(userData);
@@ -17,13 +23,49 @@ const Registration = () => {
     const registerUser = async (userData) => {
         try {
             const response = await axios.post('http://localhost:8080/api/v1/auth/register', userData, { withCredentials: true });
-            console.log(response);
+            if (response.status === 200) {
+                toast.success('Registered and logged in', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+                setTimeout(() => {
+                    navigate("/profile");
+                }, 1000)
+            } else {
+                toast.warn('login failed', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            }
         } catch (error) {
             console.log(error);
+            toast.error('something went wrong', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
         }
     }
     return (
         <section className=" body-font relative">
+            <ToastContainer />
             <div className="container px-5 py-24 mx-auto">
                 <div className="flex flex-col text-center w-full mb-12">
                     <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-200">Register</h1>

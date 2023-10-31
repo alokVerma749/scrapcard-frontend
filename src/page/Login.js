@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,6 +10,9 @@ const Login = () => {
         email: '',
         password: ''
     })
+
+    const navigate = useNavigate();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         loginUser(userCredentials);
@@ -30,6 +33,9 @@ const Login = () => {
                     progress: undefined,
                     theme: "light",
                 });
+                setTimeout(() => {
+                    navigate("/profile");
+                }, 1000)
             } else {
                 toast.warn('login failed', {
                     position: "top-right",
