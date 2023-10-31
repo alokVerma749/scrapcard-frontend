@@ -51,7 +51,7 @@ const Registration = () => {
             }
         } catch (error) {
             console.log(error);
-            toast.error('something went wrong', {
+            toast.error(error.response.data.msg || 'something went wrong', {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,
