@@ -65,7 +65,6 @@ const Login = () => {
     return (
         <div className="border flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-50 text-gray-800 mx-auto">
             <ToastContainer />
-            <Link to={"/profile"}>Profile Test</Link>
             <div className="mb-8 text-center">
                 <h1 className="my-3 text-4xl font-bold">Sign in</h1>
                 <p className="text-sm text-gray-600">Sign in to access your account</p>

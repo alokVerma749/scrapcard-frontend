@@ -5,7 +5,7 @@ const Footer = () => {
         <footer className="body-font">
             <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
                 <a href="/" className="flex title-font font-medium items-center md:justify-start justify-center">
-                    <span className="ml-3 text-xl">ScrapKart</span>
+                    <span className="ml-3 text-xl">ScrapeKart</span>
                 </a>
                 <p className="text-sm sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2023 ScrapKart —
                     <a href="https://twitter.com/knyttneve" className=" ml-1" rel="noopener noreferrer" target="_blank">@B$C</a>

@@ -1,6 +1,6 @@
-import Header from '../../components/profileComponent/Header'
 import ProfileBox from '../../components/profileComponent/ProfileBox'
 import History from '../../components/profileComponent/History'
+import Hero from '../../components/profileComponent/Hero';
 
 import { useEffect } from 'react'
 
@@ -50,7 +50,7 @@ const Profile = () => {
                 });
                 setTimeout(() => {
                     navigate("/login");
-                }, 3000)
+                }, 1000)
             }
         } catch (error) {
             console.log(error);
@@ -105,10 +105,12 @@ const Profile = () => {
     return (
         <div>
             <ToastContainer />
-            <Header />
-            <button onClick={(logout)}>Logout</button>
-            <ProfileBox />
-            <History />
+            <div className='flex flex-col md:flex-row justify-evenly items-center md:items-start space-y-5 md:space-y-5 '>
+                <History />
+                <ProfileBox />
+            </div>
+            <Hero />
+            <button onClick={(logout)} className="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-white hover:text-red-500 rounded text-lg">Logout</button>
         </div>
     )
 }
