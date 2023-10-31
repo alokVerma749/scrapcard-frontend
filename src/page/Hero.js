@@ -12,7 +12,6 @@ const Hero = () => {
     const authenticate = async () => {
         try {
             const response = await axios.get("http://localhost:8080/api/v1/auth/read_token", { withCredentials: true })
-            console.log(response);
             if (response.status === 200) {
                 navigate('/profile')
             }

@@ -10,7 +10,11 @@ const Registration = () => {
         name: '',
         email: '',
         company: '',
-        password: ''
+        password: '',
+        imgURL: '',
+        githubLink: '',
+        twitterLink: '',
+        website: ''
     })
 
     const navigate = useNavigate();
@@ -107,6 +111,46 @@ const Registration = () => {
                                     password: e.target.value
                                 })}
                                     type="password" id="password" name="password" className="w-full bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                            </div>
+                        </div>
+                        <div className="p-2 md:w-1/2">
+                            <div className="relative">
+                                <label htmlFor="profile-pic" className="leading-7 text-sm">imgURL</label>
+                                <input value={userData.imgURL} onChange={(e) => setUserData({
+                                    ...userData,
+                                    imgURL: e.target.value
+                                })}
+                                    type="text" id="profile-pic" name="profile-pic" className="w-full bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                            </div>
+                        </div>
+                        <div className="p-2 md:w-1/2">
+                            <div className="relative">
+                                <label htmlFor="githubLink" className="leading-7 text-sm">Github</label>
+                                <input value={userData.githubLink} onChange={(e) => setUserData({
+                                    ...userData,
+                                    githubLink: e.target.value
+                                })}
+                                    type="text" id="githubLink" name="githubLink" className="w-full bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                            </div>
+                        </div>
+                        <div className="p-2 md:w-1/2">
+                            <div className="relative">
+                                <label htmlFor="twitterLink" className="leading-7 text-sm">Twitter</label>
+                                <input value={userData.twitterLink} onChange={(e) => setUserData({
+                                    ...userData,
+                                    twitterLink: e.target.value
+                                })}
+                                    type="text" id="twitterLink" name="twitterLink" className="w-full bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                            </div>
+                        </div>
+                        <div className="p-2 md:w-1/2">
+                            <div className="relative">
+                                <label htmlFor="website" className="leading-7 text-sm">Website</label>
+                                <input value={userData.website} onChange={(e) => setUserData({
+                                    ...userData,
+                                    website: e.target.value
+                                })}
+                                    type="text" id="website" name="website" className="w-full bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                             </div>
                         </div>
                         <div className="p-2 w-full">
