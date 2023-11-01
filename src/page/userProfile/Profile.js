@@ -57,7 +57,7 @@ const Profile = () => {
             }
         } catch (error) {
             console.log(error);
-            toast.error('Something went wrong', {
+            toast.error(error.response.data.msg || 'Something went wrong', {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -67,6 +67,9 @@ const Profile = () => {
                 progress: undefined,
                 theme: "light",
             });
+            setTimeout(() => {
+                navigate("/login");
+            }, 1000)
         }
     }
     const logout = async () => {
